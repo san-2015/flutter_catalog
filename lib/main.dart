@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/day2.dart';
+import 'package:flutter_catalog/homepage.dart';
+import 'package:flutter_catalog/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-
+// ctrl +  ~ =terminmal
+// ctrl+shift+P= setting
+// runApp - Widget
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,20 +17,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // themeMode: ThemeMode.light,
+      home: const LoginPage(),
+      darkTheme: ThemeData(brightness: Brightness.light),
       theme: ThemeData(
-       
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        // primaryTextTheme: GoogleFonts.latoTextTheme()
       ),
-      home:MyHomePage(),
+      routes: {
+        // '/': (context) => const Day2(),
+        "/login": (context) => const LoginPage(),
+        "/home": (context) => HomePage()
+      },
     );
   }
-}
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  // optional parameter in curly braces{}
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+  bringVegetables({int rupees = 100}) {}
 }
